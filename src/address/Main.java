@@ -392,7 +392,7 @@ public class Main {
 			else
 			{
 				for(int i=0;i<s.length();i++){//县级
-					if(s.charAt(i)=='县'||s.charAt(i)=='区'){
+					if(s.charAt(i)=='县'||s.charAt(i)=='区'||s.charAt(i)=='市'){
 						if(county=="") {
 							county=s.substring(0,i+1);
 							s=s.replaceFirst(county,"");
