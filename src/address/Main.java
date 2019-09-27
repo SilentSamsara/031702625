@@ -320,8 +320,8 @@ public class Main {
 		public Location() { province="";city="";county="";town="";block="";door="";detail="";}
 		public void SetHard(String ha) {this.hard=ha;}//设置难度
 		public void SetProVinceCity(String s1,String s2,int num) {
-			if(num==0||num==1||num==20||num==21||num==33||num==34||num==4||num==30||num==29||num==19||num==25)
-				;
+			if(num==0||num==8||num==1||num==20||num==21||num==33||num==34||num==4||num==30||num==29||num==19||num==25)
+				this.province=s1;
 			else
 				this.province=s1+"省";
 			this.city=s2+"市";
