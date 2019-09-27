@@ -249,9 +249,13 @@ public class Main {
 				char b=re[2].charAt(i+10);
 				if(b>='0'&&b<='9')
 				{
-					someone.Setnumber(re[2].substring(i,i+10));
-					re[2]=re[2].replaceFirst(re[2].substring(i,i+11),"");
-					break;
+					char c=re[2].charAt(i+5)
+					if(c>='0'&&c<='9')
+					{
+						someone.Setnumber(re[2].substring(i,i+10));
+						re[2]=re[2].replaceFirst(re[2].substring(i,i+11),"");
+						break;
+					}
 				}
 			}
 		}
@@ -335,7 +339,7 @@ public class Main {
 		public void SetFive(String s) {
 			for(int i=0;i<s.length();i++)
 			{
-				if(s.charAt(i)=='县'||s.charAt(i)=='区'){
+				if(s.charAt(i)=='县'||s.charAt(i)=='区'||s.charAt(i)=='市'){
 					if(county=="") {
 						county=s.substring(0,i+1);
 						s=s.replaceFirst(county,"");
