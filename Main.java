@@ -243,20 +243,22 @@ public class Main {
 		int i=0,j=0;
 		for(i=0;i<re[2].length();i++)
 		{
+			int z=i;
 			char a=re[2].charAt(i);
-			if(a>'0'&&a<='9')
-			{
-				char b=re[2].charAt(i+10);
-				if(b>='0'&&b<='9')
-				{
-					char c=re[2].charAt(i+5);
-					if(c>='0'&&c<='9')
-					{
-						someone.Setnumber(re[2].substring(i,i+10));
-						re[2]=re[2].replaceFirst(re[2].substring(i,i+11),"");
+			if(a>'0'&&a<='9'){
+				for (;z<=(i+11); z++){
+					char b=re[2].charAt(z);
+					if(b>='0'&&b<='9')
+						;
+					else
 						break;
-					}
 				}
+			}
+			if(z==(i+11))
+			{
+				someone.Setnumber(re[2].substring(i,i+10));
+				re[2]=re[2].replaceFirst(re[2].substring(i,i+11),"");
+				break;
 			}
 		}
 		for(i=0;i<AddressLibrary.provinces.length;i++) 
