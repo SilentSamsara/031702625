@@ -243,16 +243,22 @@ public class Main {
 		int i=0,j=0;
 		for(i=0;i<re[2].length();i++)
 		{
+			int z=i;
 			char a=re[2].charAt(i);
-			if(a>'0'&&a<='9')
-			{
-				char b=re[2].charAt(i+10);
-				if(b>='0'&&b<='9')
-				{
-					someone.Setnumber(re[2].substring(i,i+10));
-					re[2]=re[2].replaceFirst(re[2].substring(i,i+11),"");
-					break;
+			if(a>'0'&&a<='9'){
+				for (;z<=(i+11); z++){
+					char b=re[2].charAt(z);
+					if(b>='0'&&b<='9')
+						;
+					else
+						break;
 				}
+			}
+			if(z==(i+11))
+			{
+				someone.Setnumber(re[2].substring(i,i+11));
+				re[2]=re[2].replaceFirst(re[2].substring(i,i+11),"");
+				break;
 			}
 		}
 		for(i=0;i<AddressLibrary.provinces.length;i++) 
@@ -275,14 +281,13 @@ public class Main {
 							re[2]=re[2].replaceFirst("市","");
 						break;
 					}
-					else if(j==AddressLibrary.citys[i].length) {
-						someone.address.SetProVinceCity(Province,null,i);
+					else if(j==AddressLibrary.citys[i].length-1 ) {
+						someone.address.SetProVinceCity(Province,"",i);
 						re[2]=re[2].replaceFirst(Province,"");
 						if(re[2].charAt(0)=='省')
-							re[2]=re[2].replaceFirst("省","");
+						re[2]=re[2].replaceFirst("省","");
 					}
 				}
-				break;
 			}
 		}
 		
@@ -314,14 +319,18 @@ public class Main {
 		public Location() { province="";city="";county="";town="";block="";door="";detail="";}
 		public void SetHard(String ha) {this.hard=ha;}//设置难度
 		public void SetProVinceCity(String s1,String s2,int num) {
-			if(num==0||num==1||num==20||num==21||num==33||num==34||num==4||num==30||num==29||num==19||num==25)
-				;
+			if(num==0||num==8||num==1||num==20||num==21||num==33||num==34||num==4||num==30||num==29||num==19||num==25)
+				this.province=s1;
 			else
 				this.province=s1+"省";
 			this.city=s2+"市";
+			if(city.length()==1)
+				this.city=city.replace("市", "");
 		}//设置省和市；
 		public String displayFIVE() {
 			StringBuffer s=new StringBuffer();
+			if(county=="区")
+				county=county.replaceFirst("区", "");
 			if(hard=="1")
 			{
 				s.append("\t\t"+"\"地区\":"+"[\r\n"+"\t\t\t"+"\""+province+"\",\r\n"+"\t\t\t"+"\""+city+"\",\r\n"+"\t\t\t"+"\""+county+"\",\r\n"+"\t\t\t"+"\""+town+"\",\r\n"+"\t\t\t"+"\""+detail+"\",\r\n"+"\t\t"+"]\r\n"+"\r\t}");
@@ -335,7 +344,7 @@ public class Main {
 		public void SetFive(String s) {
 			for(int i=0;i<s.length();i++)
 			{
-				if(s.charAt(i)=='县'||s.charAt(i)=='区'){
+				if(s.charAt(i)=='县'||s.charAt(i)=='区'||s.charAt(i)=='市'){
 					if(county=="") {
 						county=s.substring(0,i+1);
 						s=s.replaceFirst(county,"");
@@ -392,7 +401,7 @@ public class Main {
 			else
 			{
 				for(int i=0;i<s.length();i++){//县级
-					if(s.charAt(i)=='县'||s.charAt(i)=='区'||s.charAt(i)=='市'){
+					if(s.charAt(i)=='县'||s.charAt(i)=='区'){
 						if(county=="") {
 							county=s.substring(0,i+1);
 							s=s.replaceFirst(county,"");
