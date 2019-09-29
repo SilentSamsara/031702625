@@ -256,11 +256,7 @@ public class Main {
 			}
 			if(z==(i+11))
 			{
-<<<<<<< HEAD
 				someone.Setnumber(re[2].substring(i,i+11));
-=======
-				someone.Setnumber(re[2].substring(i,i+10));
->>>>>>> 1bb94059d9cfd24a391718d4fc51bf5deecacd14
 				re[2]=re[2].replaceFirst(re[2].substring(i,i+11),"");
 				break;
 			}

@@ -1,4 +1,6 @@
 Manifest-Version: 1.0
-Class-Path: .
-Main-Class: AddressBook.Main
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: admin
+Build-Jdk: 1.6.0_33
 
