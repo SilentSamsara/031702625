@@ -333,18 +333,18 @@ public class Main {
 				county=county.replaceFirst("区", "");
 			if(hard=="1")
 			{
-				s.append("\t\t"+"\"地区\":"+"[\r\n"+"\t\t\t"+"\""+province+"\",\r\n"+"\t\t\t"+"\""+city+"\",\r\n"+"\t\t\t"+"\""+county+"\",\r\n"+"\t\t\t"+"\""+town+"\",\r\n"+"\t\t\t"+"\""+detail+"\",\r\n"+"\t\t"+"]\r\n"+"\r\t}");
+				s.append("\t\t"+"\"地区\":"+"[\r\n"+"\t\t\t"+"\""+province+"\",\r\n"+"\t\t\t"+"\""+city+"\",\r\n"+"\t\t\t"+"\""+county+"\",\r\n"+"\t\t\t"+"\""+town+"\",\r\n"+"\t\t\t"+"\""+detail+"\"\r\n"+"\t\t"+"]\r\n"+"\t}");
 			}
 			else
 			{
-				s.append("\t\t"+"\"地区\":"+"[\r\n"+"\t\t\t"+"\""+province+"\",\r\n"+"\t\t\t"+"\""+city+"\",\r\n"+"\t\t\t"+"\""+county+"\",\r\n"+"\t\t\t"+"\""+town+"\",\r\n"+"\t\t\t"+"\""+block+"\",\r\n"+"\t\t\t"+"\""+door+"\",\r\n"+"\t\t\t"+"\""+detail+"\",\r\n"+"\t\t"+"]\r\n"+"\t}");
+				s.append("\t\t"+"\"地区\":"+"[\r\n"+"\t\t\t"+"\""+province+"\",\r\n"+"\t\t\t"+"\""+city+"\",\r\n"+"\t\t\t"+"\""+county+"\",\r\n"+"\t\t\t"+"\""+town+"\",\r\n"+"\t\t\t"+"\""+block+"\",\r\n"+"\t\t\t"+"\""+door+"\",\r\n"+"\t\t\t"+"\""+detail+"\"\r\n"+"\t\t"+"]\r\n"+"\t}");
 			}
 			return s.toString();
 		}//输出
 		public void SetFive(String s) {
 			for(int i=0;i<s.length();i++)
 			{
-				if(s.charAt(i)=='县'||s.charAt(i)=='区'||s.charAt(i)=='市'){
+				if(s.charAt(i)=='县'||s.charAt(i)=='区'||s.charAt(i)=='市'||s.charAt(i)=='州'){
 					if(county=="") {
 						county=s.substring(0,i+1);
 						s=s.replaceFirst(county,"");
