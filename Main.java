@@ -333,12 +333,12 @@ public class Main {
 				county=county.replaceFirst("区", "");
 			if(hard=="1")
 			{
-				s.append("\t\t"+"\"地区\":"+"[\r\n"+"\t\t\t"+"\""+province+"\",\r\n"+"\t\t\t"+"\""+city+"\",\r\n"+"\t\t\t"+"\""+county+"\",\r\n"+"\t\t\t"+"\""+town+"\",\r\n"+"\t\t\t"+"\""+detail+"\"\r\n"+"\t\t"+"]\r\n"+"\t}");
+				s.append("\t\t"+"\"地区\": "+"[\r\n"+"\t\t\t"+"\""+province+"\",\r\n"+"\t\t\t"+"\""+city+"\",\r\n"+"\t\t\t"+"\""+county+"\",\r\n"+"\t\t\t"+"\""+town+"\",\r\n"+"\t\t\t"+"\""+detail+"\"\r\n"+"\t\t"+"]\r\n"+"\t}");
 
 			}
 			else
 			{
-				s.append("\t\t"+"\"地区\":"+"[\r\n"+"\t\t\t"+"\""+province+"\",\r\n"+"\t\t\t"+"\""+city+"\",\r\n"+"\t\t\t"+"\""+county+"\",\r\n"+"\t\t\t"+"\""+town+"\",\r\n"+"\t\t\t"+"\""+block+"\",\r\n"+"\t\t\t"+"\""+door+"\",\r\n"+"\t\t\t"+"\""+detail+"\"\r\n"+"\t\t"+"]\r\n"+"\t}");
+				s.append("\t\t"+"\"地区\": "+"[\r\n"+"\t\t\t"+"\""+province+"\",\r\n"+"\t\t\t"+"\""+city+"\",\r\n"+"\t\t\t"+"\""+county+"\",\r\n"+"\t\t\t"+"\""+town+"\",\r\n"+"\t\t\t"+"\""+block+"\",\r\n"+"\t\t\t"+"\""+door+"\",\r\n"+"\t\t\t"+"\""+detail+"\"\r\n"+"\t\t"+"]\r\n"+"\t}");
 			}
 			return s.toString();
 		}//输出
