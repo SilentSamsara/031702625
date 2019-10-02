@@ -224,7 +224,7 @@ public class Main {
             try (FileOutputStream writerStream = new FileOutputStream(writeName); 
             		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(writerStream, "UTF-8")); ) 
             {
-            	//System.out.println(x.charAt(96)+" "+x.charAt(97)+" "+x.charAt(98)+" "+x.charAt(99)+" "+x.charAt(100));
+            	System.out.println(x.charAt(100)+" "+x.charAt(101)+x.charAt(102)+" "+x.charAt(103));
                 writer.write(x);
                 writer.flush();
                 writer.close();
@@ -470,8 +470,8 @@ public class Main {
 
 	
 	public static void main(String[] args) {
-		String str=readFile(args[0]);
-		writeFile(str, args[1]);
+		String str=readFile("1.txt");
+		writeFile(str, "2.txt");
 		return;
 	}
 }
