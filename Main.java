@@ -2,8 +2,8 @@ package address;
 
 import java.io.BufferedWriter;
 import java.nio.charset.Charset;
+import java.security.AlgorithmParameterGenerator;
 import java.io.*;
-import java.util.Scanner;
 public class Main {
 	public static class AddressLibrary {
 		//												1		2		3		3		4		5		6		7		8	9		10	11		12		13		14	15		16		17	18		19				20	21		22		23	24
@@ -224,6 +224,7 @@ public class Main {
             try (FileOutputStream writerStream = new FileOutputStream(writeName); 
             		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(writerStream, "UTF-8")); ) 
             {
+            	//System.out.println(x.charAt(96)+" "+x.charAt(97)+" "+x.charAt(98)+" "+x.charAt(99)+" "+x.charAt(100));
                 writer.write(x);
                 writer.flush();
                 writer.close();
@@ -334,7 +335,6 @@ public class Main {
 			if(hard=="1")
 			{
 				s.append("\t\t"+"\"地区\": "+"[\r\n"+"\t\t\t"+"\""+province+"\",\r\n"+"\t\t\t"+"\""+city+"\",\r\n"+"\t\t\t"+"\""+county+"\",\r\n"+"\t\t\t"+"\""+town+"\",\r\n"+"\t\t\t"+"\""+detail+"\"\r\n"+"\t\t"+"]\r\n"+"\t}");
-
 			}
 			else
 			{
