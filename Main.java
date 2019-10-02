@@ -334,6 +334,7 @@ public class Main {
 			if(hard=="1")
 			{
 				s.append("\t\t"+"\"地区\":"+"[\r\n"+"\t\t\t"+"\""+province+"\",\r\n"+"\t\t\t"+"\""+city+"\",\r\n"+"\t\t\t"+"\""+county+"\",\r\n"+"\t\t\t"+"\""+town+"\",\r\n"+"\t\t\t"+"\""+detail+"\"\r\n"+"\t\t"+"]\r\n"+"\t}");
+
 			}
 			else
 			{
