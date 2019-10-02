@@ -2,8 +2,8 @@ package address;
 
 import java.io.BufferedWriter;
 import java.nio.charset.Charset;
+import java.security.AlgorithmParameterGenerator;
 import java.io.*;
-import java.util.Scanner;
 public class Main {
 	public static class AddressLibrary {
 		//												1		2		3		3		4		5		6		7		8	9		10	11		12		13		14	15		16		17	18		19				20	21		22		23	24
@@ -224,6 +224,7 @@ public class Main {
             try (FileOutputStream writerStream = new FileOutputStream(writeName); 
             		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(writerStream, "UTF-8")); ) 
             {
+            	//System.out.println(x.charAt(96)+" "+x.charAt(97)+" "+x.charAt(98)+" "+x.charAt(99)+" "+x.charAt(100));
                 writer.write(x);
                 writer.flush();
                 writer.close();
