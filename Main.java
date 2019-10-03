@@ -224,7 +224,6 @@ public class Main {
             try (FileOutputStream writerStream = new FileOutputStream(writeName); 
             		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(writerStream, "UTF-8")); ) 
             {
-            	System.out.println(x.charAt(100)+" "+x.charAt(101)+x.charAt(102)+" "+x.charAt(103));
                 writer.write(x);
                 writer.flush();
                 writer.close();
