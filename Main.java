@@ -226,7 +226,8 @@ public class Main {
             {
             	//System.out.println(JSON.toJSONString(JSON.parse(x)));
             	//System.out.println(x);
-                writer.write(JSON.toJSONString(JSON.parse(x)));
+            	JSONArray json =JSONArray.parseArray(x);
+                writer.write(json.toString());
                 writer.flush();
             }
         } catch (IOException e) {
