@@ -192,7 +192,7 @@ public class Main {
 		public void Setnumber(String s) {number=s;}
 		public String display() {
 			StringBuffer result=new StringBuffer();
-			result.append("{"+""+"\"姓名\":\""+name+"\","+""+"\"电话号码\":\""+number+"\",");
+			result.append("{"+""+"\"姓名\":\""+name+"\","+""+"\"手机\":\""+number+"\",");
 			String result2= address.displayFIVE();
 			return result.toString()+result2;
 		}
@@ -221,9 +221,7 @@ public class Main {
     }
 	public static void writeFile(String x,String x2) {
         try {
-            File writeName = new File(x2);
-            writeName.createNewFile(); 
-            try (FileOutputStream writerStream = new FileOutputStream(writeName); 
+            try (FileOutputStream writerStream = new FileOutputStream(x2); 
             		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(writerStream, "UTF-8")); ) 
             {
             	//System.out.println(JSON.toJSONString(JSON.parse(x)));
