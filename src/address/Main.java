@@ -224,6 +224,7 @@ public class Main {
             try (FileOutputStream writerStream = new FileOutputStream(writeName); 
             		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(writerStream, "UTF-8")); ) 
             {
+            	JSON.parse(x);
                 writer.write(x);
                 writer.flush();
                 writer.close();
