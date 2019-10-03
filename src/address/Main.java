@@ -470,8 +470,8 @@ public class Main {
 
 	
 	public static void main(String[] args) {
-		String str=readFile("1.txt");
-		writeFile(str, "2.txt");
+		String str=readFile(args[0]);
+		writeFile(str, args[1]);
 		return;
 	}
 }
