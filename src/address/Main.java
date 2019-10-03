@@ -2,8 +2,8 @@ package address;
 
 import java.io.BufferedWriter;
 import java.nio.charset.Charset;
-import java.security.AlgorithmParameterGenerator;
 import java.io.*;
+import java.util.Scanner;
 public class Main {
 	public static class AddressLibrary {
 		//												1		2		3		3		4		5		6		7		8	9		10	11		12		13		14	15		16		17	18		19				20	21		22		23	24
@@ -190,7 +190,7 @@ public class Main {
 		public void Setnumber(String s) {number=s;}
 		public String display() {
 			StringBuffer result=new StringBuffer();
-			result.append("\t{\r\n"+"\t\t"+"\"姓名\": \""+name+"\",\r\n"+"\t\t"+"\"电话号码\": \""+number+"\",\r\n");
+			result.append("{"+""+"\"姓名\": \""+name+"\","+""+"\"电话号码\": \""+number+"\",");
 			String result2= address.displayFIVE();
 			return result.toString()+result2;
 		}
@@ -199,7 +199,7 @@ public class Main {
 	
 	public static String readFile(String x) {
         String pathname = x;
-        String result="[\r\n";
+        String result="[";
         try (InputStreamReader ipr = new InputStreamReader(new FileInputStream(pathname),Charset.forName("UTF-8"));
         		BufferedReader br = new BufferedReader(ipr); // 建立一个对象，它把文件内容转成计算机能读懂的语言
         ) {
@@ -207,14 +207,14 @@ public class Main {
             int i=0;
             while ((line = br.readLine()) != null) {
             	if(i!=0)
-            		result=result+",\r\n";
+            		result=result+",";
             	i++;
             	result=result+workout(line);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        result=result+"\r\n]";
+        result=result+"]";
         return result;
     }
 	public static void writeFile(String x,String x2) {
@@ -224,7 +224,6 @@ public class Main {
             try (FileOutputStream writerStream = new FileOutputStream(writeName); 
             		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(writerStream, "UTF-8")); ) 
             {
-            	JSON.parse(x);
                 writer.write(x);
                 writer.flush();
                 writer.close();
@@ -334,11 +333,11 @@ public class Main {
 				county=county.replaceFirst("区", "");
 			if(hard=="1")
 			{
-				s.append("\t\t"+"\"地区\": "+"[\r\n"+"\t\t\t"+"\""+province+"\",\r\n"+"\t\t\t"+"\""+city+"\",\r\n"+"\t\t\t"+"\""+county+"\",\r\n"+"\t\t\t"+"\""+town+"\",\r\n"+"\t\t\t"+"\""+detail+"\"\r\n"+"\t\t"+"]\r\n"+"\t}");
+				s.append(""+"\"地区\": "+"["+""+"\""+province+"\","+""+"\""+city+"\","+""+"\""+county+"\","+""+"\""+town+"\","+""+"\""+detail+"\""+""+"]"+"}");
 			}
 			else
 			{
-				s.append("\t\t"+"\"地区\": "+"[\r\n"+"\t\t\t"+"\""+province+"\",\r\n"+"\t\t\t"+"\""+city+"\",\r\n"+"\t\t\t"+"\""+county+"\",\r\n"+"\t\t\t"+"\""+town+"\",\r\n"+"\t\t\t"+"\""+block+"\",\r\n"+"\t\t\t"+"\""+door+"\",\r\n"+"\t\t\t"+"\""+detail+"\"\r\n"+"\t\t"+"]\r\n"+"\t}");
+				s.append(""+"\"地区\": "+"["+""+"\""+province+"\","+""+"\""+city+"\","+""+"\""+county+"\","+""+"\""+town+"\","+""+"\""+block+"\","+""+"\""+door+"\","+""+"\""+detail+"\""+""+"]"+"}");
 			}
 			return s.toString();
 		}//输出
