@@ -230,7 +230,6 @@ public class Main {
             	//System.out.println(x);
                 writer.write(x);
                 writer.flush();
-                writer.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
