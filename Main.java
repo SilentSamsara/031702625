@@ -4,6 +4,8 @@ import java.nio.charset.Charset;
 import java.security.AlgorithmParameterGenerator;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 
 import java.io.*;
 public class Main {
@@ -181,7 +183,7 @@ public class Main {
 				{ "伊宁", "奎屯", "伊宁", "察布查尔锡伯", "霍城", "巩留", "新源", "昭苏", "特克斯", "尼勒克" }, { "塔城", "乌苏", "额敏", "沙湾", "托里", "裕民", "和布克赛尔" },
 				{ "阿勒泰", "布尔津", "富蕴", "福海", "哈巴河", "青河", "吉木乃" }, { "石河子", "阿拉尔", "图木舒克", "五家渠" } } };
 	}
-	
+	static JSONObject json =new JSONObject();
 
 	public class Person {
 		
@@ -193,8 +195,10 @@ public class Main {
 		public String display() {
 			StringBuffer result=new StringBuffer();
 			result.append("{"+""+"\"姓名\":\""+name+"\","+""+"\"手机\":\""+number+"\",");
+			JSONObject json1=new JSONObject();
 			String result2= address.displayFIVE();
-			return result.toString()+result2;
+			result.append(result2);
+			return result.toString();
 		}
 	}
 	
@@ -221,13 +225,17 @@ public class Main {
     }
 	public static void writeFile(String x,String x2) {
         try {
+            File writeName = new File(x2);
+            writeName.createNewFile(); 
             try (FileOutputStream writerStream = new FileOutputStream(x2); 
             		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(writerStream, "UTF-8")); ) 
             {
-            	//System.out.println(JSON.toJSONString(JSON.parse(x)));
+            	//String str=(String) JSON.parse(JSON.toJSONString(JSON.parse(x)));
+            	
+            	
+            	//System.out.println(JSON.parse(x));
             	//System.out.println(x);
-            	JSONArray json =JSONArray.parseArray(x);
-                writer.write(json.toString());
+                writer.write(x);
                 writer.flush();
             }
         } catch (IOException e) {
