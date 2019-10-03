@@ -226,9 +226,9 @@ public class Main {
             try (FileOutputStream writerStream = new FileOutputStream(writeName); 
             		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(writerStream, "UTF-8")); ) 
             {
-            	//System.out.println(JSON.parse(x));
+            	//System.out.println(JSON.toJSONString(JSON.parse(x)));
             	//System.out.println(x);
-                writer.write(x);
+                writer.write(JSON.toJSONString(JSON.parse(x)));
                 writer.flush();
             }
         } catch (IOException e) {
@@ -340,7 +340,7 @@ public class Main {
 			}
 			else
 			{
-				s.append(""+"\"地区\":"+"["+""+"\""+province+"\","+""+"\""+city+"\","+""+"\""+county+"\","+""+"\""+town+"\","+""+"\""+block+"\","+""+"\""+door+"\","+""+"\""+detail+"\""+"\t\t"+"]"+"}");
+				s.append(""+"\"地区\":"+"["+""+"\""+province+"\","+""+"\""+city+"\","+""+"\""+county+"\","+""+"\""+town+"\","+""+"\""+block+"\","+""+"\""+door+"\","+""+"\""+detail+"\""+""+"]"+"}");
 			}
 			return s.toString();
 		}//输出
